@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crimson Plate</title>
+
+  <!-- Tailwind CSS -->
+   <!-- This script includes Tailwind CSS directly from the Tailwind CDN. It allows us to use Tailwind CSS in the projects without needing to install it via npm or build it with a bundler like Webpack. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- jQuery -->
+  <!-- This script tag includes jQuery version 3.7.1, a JavaScript library, into the project. -->
+  <script src="./js/jquery-3.7.1.min.js"></script>
+
+  <!-- Loads the Typed.js library (version 2.0.12) from the jsDelivr CDN.
+  Allows you to use Typed.js functionality in your web project. -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <!-- AOS Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+</head>
+<body>
+  <!-- Initialize AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+ 
+  <style>
+    .hero-bg {
+      background-image: url('./images/bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <!-- bg-red-600: Sets the background color to a deep red.
+  text-white: Sets the text color to white for contrast against the red background.
+  py-4: Adds vertical padding (top and bottom) of 4 units to the header for spacing. -->
+  <header class="bg-red-600 text-white py-4">
+    <!-- Acts as a container for the header content.
+        container mx-auto: Centers the content horizontally and limits its maximum width for consistent layout.
+        flex: Activates flexbox layout for the child elements.
+        items-center: Vertically aligns the child elements to the center of the header.
+        justify-between: Places child elements (logo and navigation/hamburger menu) on opposite sides of the header.
+        flex-nowrap: Prevents the child elements from wrapping to the next line.
+        px-4 md:px-6 lg:px-8:Adds horizontal padding:
+        4 units on mobile.
+        6 units on medium screens.
+        8 units on large screens. -->
+    <div class="container mx-auto flex items-center justify-between flex-nowrap px-4 md:px-6 lg:px-8">
+      <!-- Logo -->
+      <!-- Displays the website logo or title.
+      text-2xl: Sets the font size to extra large.
+      font-bold: Makes the text bold to emphasize the logo/brand name.
+      truncate: Ensures the text does not overflow its container and adds ellipsis (...) if it’s too long. -->
+      <h1 class="text-2xl font-bold truncate">Crimson Plate</h1>
+  
+      <!-- Hamburger Menu Button -->
+      <!-- Toggles the visibility of the navigation menu on mobile devices.
+      id="menu-toggle": Adds an ID for JavaScript to target this button for functionality (e.g., toggling the menu visibility).
+      class="block md:hidden":block: Displays the button on mobile screens.
+      md:hidden: Hides the button on medium screens and above (desktop).
+      text-white: Sets the button color to white to match the header.
+      focus:outline-none: Removes the default focus outline for cleaner design.
+      flex-shrink-0: Prevents the button from shrinking if space is limited.
+      SVG: Renders the hamburger menu icon (three horizontal lines) for the button. -->
+      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+  
+      <!-- Navigation Menu -->
+      <!-- Provides the navigation links to other pages of the website.
+      id="menu": Adds an ID for JavaScript to target this menu for functionality (e.g., toggling visibility).
+      class="hidden md:flex":hidden: Hides the menu by default (on mobile).
+      md:flex: Displays the menu as a flex container on medium screens and above.
+      flex-col md:flex-row:On mobile, stacks links vertically (flex-col).
+      On medium screens and above, arranges links horizontally (flex-row).
+      md:justify-end: Aligns the links to the right on medium screens and above.
+      space-y-2 md:space-y-0 md:space-x-4:On mobile, adds vertical spacing (space-y-2) between links.On medium screens and above, removes vertical spacing (space-y-0) and adds horizontal spacing (space-x-4) instead.
+      bg-red-600 md:bg-transparent:On mobile, uses a red background to match the header.On medium screens and above, the background becomes transparent.
+      absolute md:static top-16 left-0 w-full md:w-auto:On mobile, positions the menu absolutely (dropdown style) below the header.
+      On medium screens and above, positions it statically inline with the header.
+      p-4 md:p-0:Adds padding to the menu on mobile.
+      Removes padding on medium screens and above for a cleaner inline look.
+      transition-all duration-300: Smoothly animates menu visibility changes (e.g., when toggling the hamburger menu). -->
+      <nav id="menu" class="hidden md:flex flex-col md:flex-row md:justify-end space-y-2 md:space-y-0 md:space-x-4 bg-red-600 md:bg-transparent absolute md:static top-16 left-0 w-full md:w-auto p-4 md:p-0 transition-all duration-300">
+        <!-- Each <a> tag is a clickable navigation link to different pages of the website.
+        href="./index.html": Specifies the destination URL for the link.
+        hover:underline: Adds an underline effect to the link text when hovered. -->
+        <a href="./index.html" class="hover:underline">Home</a>
+        <a href="./about.html" class="hover:underline">About</a>
+        <a href="./menu.html" class="hover:underline">Menu</a>
+        <a href="./gallery.html" class="hover:underline">Gallery</a>
+        <a href="./contact.html" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+  
+
+  <!-- Hero Section -->
+  <!-- Defines the Hero Section and applies background styling, a grid-based layout, and responsive behavior.
+    hero-bg: Applies a custom background image (background-image: url('./images/bg.jpg')) as defined in the CSS styles.
+    h-screen: Sets the height of the section to fill the full height of the viewport (100vh).
+    grid: Enables a grid layout for arranging content within the section.
+    grid-cols-4: On mobile (default), defines a grid with 4 columns.
+    md:grid-cols-12:On medium screens (tablet and above), switches the grid to 12 columns for a more refined layout.
+    items-center: Vertically centers the content within the section.
+    px-4 md:px-6 lg:px-8:Adds horizontal padding:
+    4 units on mobile.
+    6 units on tablets.
+    8 units on desktops.
+    text-center: Centers all text horizontally.
+    text-white: Sets the text color to white for contrast against the background. -->
+  <section class="hero-bg h-screen grid grid-cols-4 md:grid-cols-12 items-center px-4 md:px-6 lg:px-8 text-center text-white">
+    <!-- Contains the main content of the Hero Section (heading, description, and CTA button). 
+        col-span-4: On mobile, spans all 4 columns (occupies full width). md:col-start-4:On medium screens, starts at column 4 (center-aligning the content within the grid).
+        md:col-span-6: On medium screens, spans 6 columns (occupies half the grid width). -->
+    <div class="col-span-4 md:col-start-4 md:col-span-6">
+    <!-- Displays a large, bold heading that grabs attention.
+        text-2xl: Sets the font size to 2xl on mobile.
+        md:text-4xl:Increases the font size to 4xl on medium screens and above for better visibility.
+        font-bold: Makes the text bold to emphasize importance.
+        mb-4: Adds a margin-bottom of 4 units to separate it from the next element. -->
+      <h2 class="text-2xl md:text-4xl font-bold mb-4">
+      <!-- Contains dynamically typed text powered by Typed.js for an engaging animated effect.
+            id="typed-text":Acts as a target for the Typed.js script to insert and animate text dynamically.
+            text-red-600:Sets the text color to red.
+            bg-clip-text: Clips the text background for potential visual effects (used here to isolate text color). -->
+        <span id="typed-text" class="text-red-600 bg-clip-text"></span>
+      </h2>
+      <!-- Displays a brief description or tagline that complements the heading. -->
+      <p class="text-lg md:text-xl text-yellow-100 mb-6">Cozy ambiance, and excellent service.</p>
+      <!-- Serves as a Call-to-Action (CTA) button to encourage users to visit the "Menu" page. -->
+      <a href="./menu.html" class="bg-white text-red-600 px-6 py-3 rounded-lg font-bold">Explore Our Menu</a>
+    </div>
+  </section>
+  <!-- id="specials": Identifies this section, which can be targeted by navigation links or scripts.
+  class="py-16 bg-white text-gray-800":
+  py-16: Adds vertical padding (64px top and bottom).
+  bg-white: Sets the background color to white.
+  text-gray-800: Sets the text color to a dark gray for good contrast.
+  data-aos="fade-up": Triggers the AOS (Animate on Scroll) library to create a fade-up animation when the section scrolls into view. -->
+  <section id="specials" class="py-16 bg-white text-gray-800" data-aos="fade-up">
+    
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Our Specials</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card Design -->
+        <!-- 1. Container
+                class="p-4 shadow-lg rounded-lg bg-gray-50":
+                p-4: Adds padding (16px) inside the card.
+                shadow-lg: Adds a large shadow for depth.
+                rounded-lg: Rounds the corners of the card for a softer look.
+                bg-gray-50: Sets the background to a light gray shade.
+                2. AOS Animation
+                data-aos="zoom-in": Applies a zoom-in effect when the card scrolls into view.
+                data-aos-delay="200": Adds a delay of 200ms before the animation starts.
+                3. Image
+                src="./images/food3.jpg": Specifies the image path.
+                alt="Special Dish": Provides alternative text for accessibility.
+                class="rounded-md mb-4":
+                rounded-md: Adds medium-rounded corners to the image.
+                mb-4: Adds a 16px margin below the image. -->
+        <div class="p-4 shadow-lg rounded-lg bg-gray-50" data-aos="zoom-in">
+          <img src="./images/food1.jpg" alt="Special Dish" class="rounded-md mb-4">
+          <h3 class="text-xl font-bold mb-2">Gourmet Appetizer Delight</h3>
+          <p>A beautifully plated gourmet appetizer featuring fresh greens, perfectly seared salmon, and a rich balsamic glaze. This dish sets the tone for an unforgettable dining experience.</p>
+        </div>
+        <div class="p-4 shadow-lg rounded-lg bg-gray-50" data-aos="zoom-in" data-aos-delay="200">
+          <img src="./images/food3.jpg" alt="Special Dish" class="rounded-md mb-4">
+          <h3 class="text-xl font-bold mb-2">Mediterranean Harvest</h3>
+          <p>A savory blend of grilled salmon, fresh asparagus, roasted cherry tomatoes, and a zesty herb sauce. A true celebration of Mediterranean flavors.</p>
+        </div>
+        <div class="p-4 shadow-lg rounded-lg bg-gray-50" data-aos="zoom-in" data-aos-delay="400">
+          <img src="./images/food5.jpg" alt="Special Dish" class="rounded-md mb-4">
+          <h3 class="text-xl font-bold mb-2"> Caprese Elegance</h3>
+          <p>A refreshing Caprese salad with ripe tomatoes, creamy mozzarella, delicate microgreens, and a drizzle of balsamic vinaigrette. A simple yet sophisticated delight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials -->
+  <!-- data-aos="fade-right":Adds a "fade-right" animation for the entire section as it scrolls into view. -->
+  <section class="py-16 bg-gray-100" data-aos="fade-right">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Customer Testimonials</h2>
+      <!-- flex: Enables a flexible box layout for the testimonials.
+      flex-col: Stacks the items vertically on small screens (mobile-first design).
+      md:flex-row: Switches to a horizontal layout (side-by-side) on medium screens (≥768px).
+      gap-8: Adds 32px of space between testimonial cards.-->
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- Testimonial Cards -->
+        <!-- class="bg-white p-6 shadow-lg rounded-lg":
+        bg-white: Sets the card's background color to white for a clean, professional look.
+        p-6: Adds 24px of padding inside the card for a spacious layout.
+        shadow-lg: Adds a large shadow for depth and separation from the background.
+        rounded-lg: Rounds the corners of the card for a softer, modern appearance.
+        data-aos="fade-up":Triggers the "fade-up" animation when the card enters the viewport.
+        data-aos-delay="200" and data-aos-delay="400":Adds delays of 200ms and 400ms, respectively, to stagger the animations of the second and third cards for a cascading effect. -->
+        <div class="bg-white p-6 shadow-lg rounded-lg" data-aos="fade-up">
+          <p class="text-gray-600 italic">"A perfect place for a special night out. The ambiance and food are unmatched."</p>
+          <p class="text-gray-800 font-bold mt-4">- John Doe</p>
+        </div>
+        <div class="bg-white p-6 shadow-lg rounded-lg" data-aos="fade-up" data-aos-delay="200">
+          <p class="text-gray-600 italic">"The flavors are incredible, and the presentation is second to none. Highly recommend!"</p>
+          <p class="text-gray-800 font-bold mt-4">- Jane Smith</p>
+        </div>
+        <div class="bg-white p-6 shadow-lg rounded-lg" data-aos="fade-up" data-aos-delay="400">
+          <p class="text-gray-600 italic">"Absolutely loved the ambiance and the food. Great experience!"</p>
+          <p class="text-gray-800 font-bold mt-4">- Michael Brown</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+<footer class="bg-gray-800 text-white py-8">
+    <!-- Creates a responsive container for the footer content.container mx-auto: Centers the content horizontally and limits the maximum width to keep it aligned with the rest of the page.
+        grid: Activates the CSS grid layout for arranging the footer's sections.
+        grid-cols-4:On mobile (default), creates a grid with 4 columns.-->
+    <div class="container mx-auto grid grid-cols-4 md:grid-cols-12 px-4 md:px-6 lg:px-8 gap-4">
+        <!-- About Section -->
+        <div class="col-span-4 md:col-span-4">
+            <h4 class="text-lg font-bold mb-4">About Us</h4>
+            <p class="text-sm text-gray-400">
+                Welcome to our restaurant! We take pride in offering delicious meals, a cozy ambiance, and excellent
+                service. Experience fine dining at its best.
+            </p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <!-- Acts as a container for the "Quick Links" section.
+                   On mobile (default), spans across all 4 columns of the grid.
+                   On medium screens (tablet and above), spans 4 out of 12 columns of the grid. -->
+        <div class="col-span-4 md:col-span-4">
+            <!-- Displays the heading "Quick Links".
+            text-lg: Sets the font size to large for emphasis.
+            font-bold: Makes the text bold to stand out.
+            mb-4: Adds a margin below the heading to create spacing between the title and the list. -->
+            <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+            <!-- Creates an unordered list (<ul>) to structure the links. -->
+            <ul class="text-sm">
+                <!-- Each <li> inside the <ul> represents a link to a page. -->
+                <li class="mb-2"><a href="./index.html" class="hover:underline text-gray-300">Home</a></li>
+                <li class="mb-2"><a href="./menu.html" class="hover:underline text-gray-300">Menu</a></li>
+                <li class="mb-2"><a href="./gallery.html" class="hover:underline text-gray-300">Gallery</a></li>
+                <li class="mb-2"><a href="./about.html" class="hover:underline text-gray-300">About</a></li>
+                <li class="mb-2"><a href="./contact.html" class="hover:underline text-gray-300">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <!-- Creates a container for the "Contact Us" section.
+        What It Does:
+        col-span-4: On mobile (default), spans all 4 columns in the grid.
+        md:col-span-4: On medium screens (tablet and above), spans 4 out of 12 columns in the grid.
+         -->
+        <div class="col-span-4 md:col-span-4">
+            <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+            <!-- Creates a container for the "Contact Us" section.
+            col-span-4: On mobile (default), spans all 4 columns in the grid.
+            md:col-span-4: On medium screens (tablet and above), spans 4 out of 12 columns in the grid.
+             -->
+            <ul class="text-sm text-gray-400">
+                <!-- Creates a list of contact details (address, phone, email).
+                text-sm: Sets the font size to small for subtlety.
+                text-gray-400: Makes the text a light gray color, blending well with the footer. -->
+                <li class="mb-2">
+                    <span class="font-semibold text-gray-300">Address:</span> 167 Lonsdale Street, North Vancouver
+                </li>
+                <li class="mb-2">
+                    <span class="font-semibold text-gray-300">Phone:</span> 
+                    <!-- The phone number is wrapped in an <a> tag with a tel: link:
+                    Clicking this link allows users to call the number directly on mobile devices.
+                    class="hover:underline": Adds an underline to the phone number when hovered. The same for the email-->
+                    <a href="tel:+13334447777"
+                        class="hover:underline">+1 (333) 444-7777</a>
+                </li>
+                <li>
+                    <span class="font-semibold text-gray-300">Email:</span>
+                     <a href="mailto:info@restaurant.com"
+                        class="hover:underline">info@crimsonplate.com</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="border-t border-gray-700 mt-6 pt-4 text-center">
+        <!-- This is the container for the footer's bottom section.
+        Adds a top border (border-t border-gray-700) to visually separate this section from the content above it.
+        Adds margin-top (mt-6) to create space above the section.
+        Adds padding-top (pt-4) to add space inside the section above the text.
+        Centers all child elements horizontally using text-center. -->
+        <p class="text-sm text-gray-400">
+            <!-- Displays the copyright text for the website.
+            Sets the text size to small (text-sm).
+            Changes the text color to light gray (text-gray-400) for a subtle appearance. -->
+            &copy; 2024 Crimson Plate. All Rights Reserved.
+        </p>
+        <div class="flex justify-center mt-4 space-x-4">
+            <!-- Contains and aligns social media links (Facebook, Twitter, Instagram).
+            Uses flexbox (flex) to arrange child elements (the social media links) in a row.
+            Centers the links horizontally (justify-center).
+            Adds a margin-top (mt-4) to create space between this row and the copyright text above it.
+            Adds spacing (space-x-4) between the links (4 units of Tailwind spacing). -->
+            <!-- Displays an Ionicon icon for the corresponding social media platform. -->
+            <a href="#" class="text-gray-400 hover:text-white"><ion-icon name="logo-facebook"></ion-icon> Facebook</a>
+            <a href="#" class="text-gray-400 hover:text-white"><ion-icon name="logo-twitter"></ion-icon> Twitter</a>
+            <a href="#" class="text-gray-400 hover:text-white"><ion-icon name="logo-instagram"></ion-icon> Instagram</a>
+        </div>
+    </div>
+</footer>
+<!-- This tag includes a JavaScript file. It might contain functions, event handlers, or additional scripts for enhancing website's interactivity or functionality.Instead of writing JavaScript inline within the HTML file, it's a good practice to store the JavaScript code in external files for better organization, readability, and maintainability. -->
+<script src="./js/script.js"></script>
+<!-- Ionicons- This tag loads the Ionicons library, which provides a collection of vector icons that we can use in the website. -->
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<!-- This <script> tag loads the typed.js file into the webpage. -->
+<script src="./js/typed.js"></script>
+<!-- This <script> tag loads the aos.js file into the webpage. -->
+<script src="./js/aos.js"></script>
+</body>
+</html>

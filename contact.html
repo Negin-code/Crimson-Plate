@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Crimson Plate</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+ <!-- jQuery -->
+ <script src="./js/jquery-3.7.1.min.js"></script>
+
+  <!-- jQuery Validation -->
+  <!--  Includes the jQuery Validation plugin in your project.
+  Adds validation rules to HTML forms.
+  Ensures user inputs meet the specified criteria before the form is submitted.
+  Provides feedback to the user by showing error messages or highlighting invalid fields. -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+  
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+
+   <!-- Header -->
+   <header class="bg-red-600 text-white py-4">
+    <div class="container mx-auto flex items-center justify-between flex-nowrap px-4 md:px-6 lg:px-8">
+      <!-- Logo -->
+      <h1 class="text-2xl font-bold truncate">Crimson Plate</h1>
+  
+      <!-- Hamburger Menu Button -->
+      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+  
+      <!-- Navigation Menu -->
+      <nav id="menu" class="hidden md:flex flex-col md:flex-row md:justify-end space-y-2 md:space-y-0 md:space-x-4 bg-red-600 md:bg-transparent absolute md:static top-16 left-0 w-full md:w-auto p-4 md:p-0 transition-all duration-300">
+        <a href="./index.html" class="hover:underline">Home</a>
+        <a href="./about.html" class="hover:underline">About</a>
+        <a href="./menu.html" class="hover:underline">Menu</a>
+        <a href="./gallery.html" class="hover:underline">Gallery</a>
+        <a href="./contact.html" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="py-16 bg-white">
+    <!-- Creates a responsive grid container for the section.
+    container: Centers the content and sets a maximum width.
+    mx-auto: Horizontally centers the container.
+    grid: Activates CSS Grid layout.
+    grid-cols-4: Defines a 4-column grid layout for mobile devices.
+    md:grid-cols-12: Expands to a 12-column grid on medium and larger screens.
+    gap-4: Adds a gap of 4 units between grid items.
+    px-4 md:px-6 lg:px-8: Adds horizontal padding:
+    4 units on mobile.
+    6 units on medium screens.
+    8 units on large screens.
+    items-center: Vertically centers the content in each grid cell.-->
+    <div class="container mx-auto grid grid-cols-4 md:grid-cols-12 gap-4 px-4 md:px-6 lg:px-8 items-center">
+      <!-- Displays an image in the left half of the section.-->
+      <div class="col-span-4 md:col-span-6">
+        <!-- src="./images/contact.jpg": Specifies the source of the image.
+        alt="Contact Us": Provides alternative text for accessibility.
+        rounded-lg: Adds rounded corners to the image.
+        shadow-lg: Applies a large shadow effect.
+        w-full: Ensures the image takes up the full width of its container. -->
+        <img src="./images/contact.jpg" alt="Contact Us" class="rounded-lg shadow-lg w-full">
+      </div>
+
+      <!-- Form Section -->
+      <div class="col-span-4 md:col-span-6 bg-gray-100 p-6 md:p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center mb-6">Contact Us</h2>
+        <!-- Creates a form with an id of contactForm for validation or submission logic. -->
+        <form id="contactForm">
+          <div class="mb-4">
+          <!-- Label (<label>):
+          for="name": Links the label to the id="name" field for accessibility.
+          block: Makes the label a block-level element, ensuring it appears above the input field.
+          text-gray-700 mb-2: Styles the label with a dark gray color and a bottom margin for spacing. -->
+            <label for="name" class="block text-gray-700 mb-2">Name</label>
+            <!-- nput Field (<input>):
+            type="text": Specifies a text input field.
+            id="name" and name="name": Identifies the field and its associated data when the form is submitted.
+            w-full: Makes the input field span the full width of its container.
+            border px-4 py-2 rounded-lg:Adds a border, padding, and rounded corners for styling.
+            required: Ensures the field must be filled out before the form can be submitted. -->
+            <input type="text" id="name" name="name" class="w-full border px-4 py-2 rounded-lg" required>
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 mb-2">Email</label>
+            <input type="email" id="email" name="email" class="w-full border px-4 py-2 rounded-lg" required>
+          </div>
+          <div class="mb-4">
+            <label for="message" class="block text-gray-700 mb-2">Message</label>
+            <textarea id="message" name="message" class="w-full border px-4 py-2 rounded-lg" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="bg-red-600 text-white px-6 py-2 rounded-lg w-full">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto grid grid-cols-4 md:grid-cols-12 px-4 md:px-6 lg:px-8 gap-4">
+      <!-- About Section -->
+      <div class="col-span-4 md:col-span-4">
+        <h4 class="text-lg font-bold mb-4">About Us</h4>
+        <p class="text-sm text-gray-400">
+          Welcome to our restaurant! We take pride in offering delicious meals, a cozy ambiance, and excellent service. Experience fine dining at its best.
+        </p>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="col-span-4 md:col-span-4">
+        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+        <ul class="text-sm">
+            <li class="mb-2"><a href="./index.html" class="hover:underline text-gray-300">Home</a></li>
+            <li class="mb-2"><a href="./menu.html" class="hover:underline text-gray-300">Menu</a></li>
+            <li class="mb-2"><a href="./gallery.html" class="hover:underline text-gray-300">Gallery</a></li>
+            <li class="mb-2"><a href="./about.html" class="hover:underline text-gray-300">About</a></li>
+            <li class="mb-2"><a href="./contact.html" class="hover:underline text-gray-300">Contact</a></li>
+          </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="col-span-4 md:col-span-4">
+        <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+        <ul class="text-sm text-gray-400">
+          <li class="mb-2">
+            <span class="font-semibold text-gray-300">Address:</span> 167 Lonsdale Street, North Vancouver
+          </li>
+          <li class="mb-2">
+            <span class="font-semibold text-gray-300">Phone:</span> <a href="tel:+13334447777" class="hover:underline">+1 (333) 444-7777</a>
+          </li>
+          <li>
+            <span class="font-semibold text-gray-300">Email:</span> <a href="mailto:info@restaurant.com" class="hover:underline">info@crimsonplate.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="border-t border-gray-700 mt-6 pt-4 text-center">
+        <p class="text-sm text-gray-400">
+          &copy; 2024 Crimson Plate. All Rights Reserved.
+        </p>
+        <div class="flex justify-center mt-4 space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white"><ion-icon name="logo-facebook"></ion-icon> Facebook</a>
+          <a href="#" class="text-gray-400 hover:text-white"><ion-icon name="logo-twitter"></ion-icon> Twitter</a>
+          <a href="#" class="text-gray-400 hover:text-white"><ion-icon name="logo-instagram"></ion-icon> Instagram</a>
+        </div>
+      </div>
+</footer>
+
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script src="./js/script.js"></script>
+<!-- This <script> tag loads the form-validation.js file into the webpage.  -->
+<script src="./js/form-validation.js"></script>
+
+</body>
+</html>
